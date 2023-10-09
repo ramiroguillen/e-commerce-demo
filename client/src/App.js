@@ -6,13 +6,16 @@ import ProductForm from "./views/ProductForm";
 import NotFound from "./views/NotFound";
 import Cart from "./views/Cart";
 import Wishlist from "./views/Wishlist";
+import ProductDetails from "./views/ProductDetails";
 
 function App() {
   return (
     <Routes>
       <Route exact path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/add-product" element={<ProductForm />} />
+        <Route path="/create-product" element={<ProductForm />} />
+        <Route path="/update-product/:id" element={<ProductForm />} />
+        <Route path="/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
       </Route>

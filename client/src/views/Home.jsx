@@ -11,7 +11,7 @@ const Home = () => {
   } = useGetAllProductsQuery();
 
   return (
-    <div className="w-screen h-screen p-3 bg-slate-300 flex gap-3 justify-center flex-wrap">
+    <>
       {isLoading ? (
         <h1>Loading...</h1>
       ) : isError ? (
@@ -22,7 +22,7 @@ const Home = () => {
           <ProductCard key={product.id} product={product} />
         ))
       )}
-    </div>
+    </>
   );
 };
 
