@@ -21,25 +21,26 @@ const ProductCard = ({ product }) => {
           <h4 className="mb-3">{category}</h4>
           <p className="text-sm mb-3">{description}</p>
           <h5>Price: ${price}</h5>
-          <h5>Available: {stock > 0 ? "Yes" : "No"}</h5>
+          <h5>Available: {stock > 0 ? "Yes" : "No"} ({stock} units)</h5>
         </div>
         <div className="flex justify-between gap-1">
           <Link
             to={`/${id}`}
-            className="text-sm bg-slate-300 w-1/3 text-center"
+            className="text-sm bg-slate-300 w-1/4 text-center"
           >
             View Product
           </Link>
-          <button className="text-sm bg-slate-300 w-1/3">
+          <button className="text-sm bg-slate-300 w-1/4 text-center">
             Add to Wishlist
           </button>
           <button
-            className="text-sm bg-slate-300 disabled:text-slate-200 w-1/3"
+            className="text-sm bg-slate-300 disabled:text-slate-200 w-1/4 text-center"
             disabled={stock === 0 ? true : false}
             onClick={() => addToCartHandler(product)}
           >
             Add to Cart
           </button>
+          <Link to={`/update-product/${id}`} className="text-sm bg-slate-300 w-1/4 text-center">Edit Product</Link>
         </div>
       </div>
     </div>

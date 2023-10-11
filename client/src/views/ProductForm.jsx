@@ -49,8 +49,8 @@ const ProductForm = () => {
   };
 
   return (
-    <form className="flex flex-col w-1/2" onSubmit={handleSubmit}>
-      <h1>{params.id ? "Update" : "Create"} Product</h1>
+    <form className="flex flex-col w-1/2 bg-slate-300 m-auto px-8 py-10" onSubmit={handleSubmit}>
+      <h1 className="text-2xl text-center mb-3">{params.id ? "Update" : "Create"} Product</h1>
 
       <label>Title:</label>
       <input
@@ -58,7 +58,7 @@ const ProductForm = () => {
         name="title"
         value={product.title}
         onChange={handleChange}
-        required
+        required className="p-1 mb-3"
       />
 
       <label>Description:</label>
@@ -66,14 +66,14 @@ const ProductForm = () => {
         value={product.description}
         onChange={handleChange}
         name="description"
-        required
+        required className="p-1 mb-3"
       />
 
       <label>Category:</label>
       <select
         value={product.category}
         onChange={handleChange}
-        required
+        required className="p-1 mb-3"
         name="category"
       >
         <option value="SMARTPHONE">Smartphone</option>
@@ -87,7 +87,7 @@ const ProductForm = () => {
         name="price"
         value={product.price}
         onChange={handleChange}
-        required
+        required className="p-1 mb-3"
       />
 
       <label>Stock:</label>
@@ -96,7 +96,7 @@ const ProductForm = () => {
         name="stock"
         value={product.stock}
         onChange={handleChange}
-        required
+        required className="p-1 mb-3"
       />
 
       <label>Thumbnail:</label>
@@ -105,10 +105,10 @@ const ProductForm = () => {
         name="image"
         value={product.image}
         onChange={handleChange}
-        required
+        required className="p-1 mb-3"
       />
 
-      <button type="submit">Create</button>
+      <button type="submit" className="px-5 py-2 bg-white mb-6">{params.id ? "Update" : "Create"}</button>
     </form>
   );
 };

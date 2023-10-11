@@ -5,7 +5,6 @@ import Home from "./views/Home";
 import ProductForm from "./views/ProductForm";
 import NotFound from "./views/NotFound";
 import Cart from "./views/Cart";
-import Wishlist from "./views/Wishlist";
 import ProductDetails from "./views/ProductDetails";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <Route path="/update-product/:id" element={<ProductForm />} />
         <Route path="/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
       </Route>
       <Route path="/*" element={<NotFound />} />
     </Routes>
