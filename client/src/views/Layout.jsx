@@ -1,11 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Layout = () => {
   return (
-    <div className="w-full h-full p-3 bg-slate-300 flex gap-3 justify-center flex-wrap">
+    <>
+      <Navbar />
       <Outlet />
-    </div>
+    </>
   );
 };
 
