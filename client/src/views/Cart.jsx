@@ -6,12 +6,14 @@ import {
   calculateTotalProducts,
   clearCart,
 } from "../features/cart/cartSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, totalAmount, totalProducts } = useSelector(
     (state) => state.cart
   );
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const clearCartHandler = (cart) => {
@@ -21,11 +23,17 @@ const Cart = () => {
   useEffect(() => {
     dispatch(calculateTotalAmount());
     dispatch(calculateTotalProducts());
-  }, [cart]);
+  }, [cart, dispatch]);
+
+  const handleCheckout = (e) => {
+
+    dispatch(clearCart(cart));
+    navigate("/");
+  };
 
   return (
-    <section className="flex items-start ">
-      <div className="flex flex-col justify-center items-start gap-3 bg-slate-300 w-3/4 px-8 py-10">
+    <section className="flex items-start min-h-screen">
+      <div className="flex flex-col gap-3 bg-slate-300 w-3/4 px-8 py-10 min-h-screen">
         <h1 className="text-2xl">Shopping Cart</h1>
         {cart &&
           cart.map((product) => (
@@ -53,7 +61,12 @@ const Cart = () => {
           <span>Total:</span>
           <span>${totalAmount}</span>
         </div>
-        <button className="bg-slate-300 mt-6 py-2 px-5 w-full">Checkout</button>
+        <button
+          className="bg-slate-300 mt-6 py-2 px-5 w-full"
+          onClick={handleCheckout}
+        >
+          Checkout
+        </button>
       </div>
     </section>
   );

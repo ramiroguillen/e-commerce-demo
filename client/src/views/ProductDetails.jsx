@@ -28,7 +28,7 @@ const ProductDetails = () => {
         <h1>{error}</h1>
       ) : (
         product && (
-          <section className="flex h-screen p-3 justify-center items-start gap-3 bg-slate-300">
+          <section className="flex h-screen p-3 justify-center items-start gap-3 bg-slate-300 min-h-screen">
             <div id={product.id} className="w-1/2 h-96 bg-white flex">
               <img src={product.image} alt={product.title} />
               <div className="flex flex-col p-3 justify-between">
@@ -48,17 +48,12 @@ const ProductDetails = () => {
                     onChange={(e) => setQuantity(e.target.value)}
                   />
                 </div>
-                <div className="flex justify-between gap-1">
-                  <button className="text-sm bg-slate-300 p-1">
-                    Add to Wishlist
-                  </button>
-                  <button
-                    className="text-sm bg-slate-300 disabled:text-slate-200 p-1"
-                    onClick={() => addToCartHandler(product)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+                <button
+                  className="text-sm bg-slate-300 disabled:text-slate-200 px-5 py-2"
+                  onClick={() => addToCartHandler(product)}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </section>

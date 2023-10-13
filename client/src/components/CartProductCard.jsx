@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import {
   decreaseQuantity,
@@ -7,7 +7,6 @@ import {
 } from "../features/cart/cartSlice";
 
 const CartProductCard = ({ product }) => {
-  const [quantity, setQuantity] = useState(product.quantity);
   const dispatch = useDispatch();
 
   const decreaseHandler = (id) => {
@@ -42,6 +41,7 @@ const CartProductCard = ({ product }) => {
           min="1"
           max={product.stock}
           value={product.quantity}
+          readOnly
         />
         <button
           className="bg-slate-300 px-5 py-2"
