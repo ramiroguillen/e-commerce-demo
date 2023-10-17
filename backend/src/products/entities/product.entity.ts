@@ -2,11 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 import { productCategory } from '../enums/product-category.enum';
+import { Order } from 'src/orders/entities/order.entity';
 
 @Entity('product')
 export class Product {
@@ -24,6 +27,9 @@ export class Product {
   stock!: number;
   @Column()
   image!: string;
+  @ManyToMany(() => Order)
+  @JoinTable()
+  orders!: Order[];
   @CreateDateColumn()
   createdAt!: Date;
   @UpdateDateColumn()
